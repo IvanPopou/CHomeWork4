@@ -32,11 +32,23 @@ void PrintArray(int[] array)
 
 int SecondmaxFind(int[] array)
 {
-    int max = array[0];
-    int SecondMax = array[0];
-    for(int i = 0; i < array.Length; i++)
+    int max = 0;
+    int SecondMax = 0;
+
+    if(array[0]>array[1])
     {
-        if(array[i] > max) 
+        max = array[0];
+        SecondMax = array[1];
+    }
+    else
+    {
+        max = array[1];
+        SecondMax = array[0];   
+    }
+    
+    for(int i = 2; i < array.Length-1; i++)
+    {
+        if(array[i] >= max) 
         {
             SecondMax = max;
             max = array[i];
